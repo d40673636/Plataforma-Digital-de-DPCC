@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App de gestión escolar SB</title>
+<style>
+  html,body{margin:0;height:100%;background:#0f1424;color:#e8ebf5;font-family:system-ui,Segoe UI,Arial,sans-serif;}
+  iframe{border:0;width:100%;height:100%;display:block;background:#fff;}
+  #aviso{display:none;padding:24px;max-width:560px;margin:10vh auto;line-height:1.5;}
+</style>
+</head>
+<body>
+<!--
+  Esta página solo "incrusta" tu aplicación de Google Apps Script. Así el aviso
+  «Esta aplicación la creó un usuario de Google Apps Script» ya no aparece arriba.
+  Tus datos siguen en tu Hoja de cálculo de Google Drive; esta página no guarda nada.
+
+  QUÉ HACER: reemplaza la dirección de abajo por la URL de tu aplicación web
+  (Implementar → Administrar implementaciones → URL de la aplicación web; termina en /exec).
+-->
+<iframe id="app" title="App de gestión escolar SB" allow="fullscreen; clipboard-write" allowfullscreen></iframe>
+<div id="aviso"><h2>Falta configurar esta página</h2><p>Abre el archivo <b>index.html</b> y escribe, en la línea <code>var URL_APLICACION</code>, la dirección de tu aplicación web de Google Apps Script (la que termina en <code>/exec</code>).</p></div>
+<script>
+  var URL_APLICACION = 'https://script.google.com/macros/s/AKfycbwOWTzxujftLRgLe7yXdX3fECM4ZmO9XHO5GZZ8xrDlZodVlz9lcx6csbOSZN8ynvkc/exec';
+
+  (function () {
+    if (!/^https:\/\/script\.google\.com\/.+\/exec$/.test(URL_APLICACION)) {
+      document.getElementById('app').style.display = 'none';
+      document.getElementById('aviso').style.display = 'block';
+      return;
+    }
+    /* Se conservan los parámetros del enlace (por ejemplo ?examen=mi-examen o ?modo=profesor). */
+    document.getElementById('app').src = URL_APLICACION + (location.search || '');
+  })();
+</script>
+</body>
+</html>

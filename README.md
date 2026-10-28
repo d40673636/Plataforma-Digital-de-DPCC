@@ -1,2 +1,2 @@
-# Platafoma-Digital-de-DPCC
+# Plataforma-Digital-de-DPCC
 Evaluación
